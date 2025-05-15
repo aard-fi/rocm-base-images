@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<image schemaversion="7.5" name="leap-rocm-base">
+    <description type="system">
+        <author>Bernd Wachter</author>
+        <contact>bernd-container@wachter.fi</contact>
+        <specification>SUSE derived docker container</specification>
+    </description>
+    <preferences>
+        <type image="docker" derived_from="ghcr.io/aard-fi/suse-leap-base:latest">
+          <containerconfig name="ghcr.io/aard-fi/leap-rocm-base" tag="0.1" additionalnames=":latest" />
+        </type>
+        <version>0.0.1</version>
+        <packagemanager>zypper</packagemanager>
+        <rpm-excludedocs>true</rpm-excludedocs>
+    </preferences>
+    <repository type="rpm-md">
+        <source path="obsrepositories:/"/>
+    </repository>
+    <packages type="image">
+      <package name="hipify-clang"/>
+      <package name="hsa-amd-aqlprofile"/>
+      <package name="libatomic1"/>
+      <package name="libpci3"/>
+      <package name="miopen-hip"/>
+      <package name="rocm-device-libs"/>
+      <package name="rocm-hip-libraries"/>
+      <package name="rocm-hip-runtime"/>
+      <package name="rocm-ml-libraries"/>
+      <package name="rocm-opencl"/>
+      <package name="rocm-opencl-icd-loader"/>
+      <package name="rocm-opencl-runtime"/>
+      <package name="rocm-smi-lib"/>
+      <package name="rocm-utils"/>
+      <package name="rocminfo"/>
+    </packages>
+</image>
